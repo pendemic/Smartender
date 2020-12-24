@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartenderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alcohol">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Cocktails" Relationship="Self.FK_Cocktails_Alcohol1" FromRole="Alcohol" ToRole="Cocktails" />
+  </EntityType>
+  <EntityType Name="Cocktail">
+    <Key>
+      <PropertyRef Name="DrinkID" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DrinkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlcReqID" Type="Int32" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Alcohol" Relationship="Self.FK_Cocktails_Alcohol1" FromRole="Cocktails" ToRole="Alcohol" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Cocktails_Alcohol1">
+    <End Role="Alcohol" Type="Self.Alcohol" Multiplicity="1" />
+    <End Role="Cocktails" Type="Self.Cocktail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alcohol">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cocktails">
+        <PropertyRef Name="AlcReqID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SmartenderEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alcohols" EntityType="Self.Alcohol" />
+    <EntitySet Name="Cocktails" EntityType="Self.Cocktail" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Cocktails_Alcohol1" Association="Self.FK_Cocktails_Alcohol1">
+      <End Role="Alcohol" EntitySet="Alcohols" />
+      <End Role="Cocktails" EntitySet="Cocktails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

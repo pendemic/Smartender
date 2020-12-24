@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartenderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alcohol">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cocktails">
+    <Key>
+      <PropertyRef Name="DrinkID" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DrinkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlcReqID" Type="int" Nullable="false" />
+    <Property Name="Link" Type="varchar" MaxLength="100" />
+    <Property Name="Image" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Cocktails_Alcohol1">
+    <End Role="Alcohol" Type="Self.Alcohol" Multiplicity="1" />
+    <End Role="Cocktails" Type="Self.Cocktails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alcohol">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cocktails">
+        <PropertyRef Name="AlcReqID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SmartenderModelStoreContainer">
+    <EntitySet Name="Alcohol" EntityType="Self.Alcohol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cocktails" EntityType="Self.Cocktails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cocktails_Alcohol1" Association="Self.FK_Cocktails_Alcohol1">
+      <End Role="Alcohol" EntitySet="Alcohol" />
+      <End Role="Cocktails" EntitySet="Cocktails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
