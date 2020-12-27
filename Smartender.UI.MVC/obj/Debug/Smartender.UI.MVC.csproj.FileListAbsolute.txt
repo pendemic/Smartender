@@ -103,3 +103,6 @@ C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Project
 C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Projects\Smartender\src\Smartender.UI.MVC\obj\Debug\Smartender.UI.MVC.csproj.CopyComplete
 C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Projects\Smartender\src\Smartender.UI.MVC\obj\Debug\Smartender.UI.MVC.dll
 C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Projects\Smartender\src\Smartender.UI.MVC\obj\Debug\Smartender.UI.MVC.pdb
+C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Projects\Smartender\src\Smartender.UI.MVC\bin\Smartender.DATA.EF.dll
+C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Projects\Smartender\src\Smartender.UI.MVC\bin\Smartender.DATA.EF.pdb
+C:\Users\student\OneDrive\Documents\Visual Studio 2017\Projects\Personal Projects\Smartender\src\Smartender.UI.MVC\bin\Smartender.DATA.EF.dll.config
