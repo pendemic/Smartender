@@ -1,0 +1,15 @@
+﻿.drink-img {
+    max-width: 300px;
+    max-height: 450px;
+}
+.table-image{
+    float: left;
+}
+.cocktail-name{
+    font-weight:bold;
+    font-size:30px;
+}
+.table-font{
+    font-weight:bold;
+    padding-top: 20px;
+}
