@@ -328,6 +328,11 @@
     <Content Include="Views\Cocktails\Details.cshtml" />
     <Content Include="Views\Cocktails\Edit.cshtml" />
     <Content Include="Views\Cocktails\Index.cshtml" />
+    <Content Include="Views\Cocktails\Vodka.cshtml" />
+    <Content Include="Views\Cocktails\Whiskey.cshtml" />
+    <Content Include="Views\Cocktails\Tequila.cshtml" />
+    <Content Include="Views\Cocktails\Gin.cshtml" />
+    <Content Include="Views\Cocktails\Rum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

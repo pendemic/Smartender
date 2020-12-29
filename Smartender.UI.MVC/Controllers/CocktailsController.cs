@@ -20,6 +20,31 @@ namespace Smartender.UI.MVC.Controllers
             var cocktails = db.Cocktails.Include(c => c.Alcohol);
             return View(cocktails.ToList());
         }
+        public ActionResult Vodka()
+        {
+            var cocktails = db.Cocktails.Include(c => c.Alcohol);
+            return View(cocktails.ToList());
+        }
+        public ActionResult Whiskey()
+        {
+            var cocktails = db.Cocktails.Include(c => c.Alcohol);
+            return View(cocktails.ToList());
+        }
+        public ActionResult Tequila()
+        {
+            var cocktails = db.Cocktails.Include(c => c.Alcohol);
+            return View(cocktails.ToList());
+        }
+        public ActionResult Gin()
+        {
+            var cocktails = db.Cocktails.Include(c => c.Alcohol);
+            return View(cocktails.ToList());
+        }
+        public ActionResult Rum()
+        {
+            var cocktails = db.Cocktails.Include(c => c.Alcohol);
+            return View(cocktails.ToList());
+        }
 
         // GET: Cocktails/Details/5
         public ActionResult Details(int? id)
