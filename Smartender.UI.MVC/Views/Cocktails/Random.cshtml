@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Smartender.DATA.EF.Cocktail>
+
+@{
+    ViewBag.Title = "Random";
+    int count = Model.Count();
+    Random cocktailRndnbr = new Random();
+    int cocktailRnd = cocktailRndnbr.Next(1,count);
+}
+
+<h2>Random</h2>
+<p>@Html.ActionLink("Try Again", "Random", "Cocktails", null, new { @class = "btn btn-primary btn-large" })</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Name)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Link)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Image)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Alcohol.Type)*@
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+            if (item.DrinkID == cocktailRnd)
+            {
+                <tr>
+                    <td>
+                        <p class="cocktail-name">@Html.DisplayFor(modelItem => item.Name)</p>
+
+                        <p class="table-font">Alcohol required: @Html.DisplayFor(modelItem => item.Alcohol.Type)</p>
+                        <p>Click picture for more info and recipe</p>
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DrinkID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.DrinkID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DrinkID })
+                    </td>
+                    <td class="table-image">
+                        <a href="@item.Link" target="_blank">
+                            <img src="~/Smartender images/@item.Image"
+                                 class="drink-img" alt="Drink image for @item.Name" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+
+
+    }
+
+
+</table>
